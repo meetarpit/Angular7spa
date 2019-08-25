@@ -1,0 +1,78 @@
+<div class="container">
+  <div *ngIf="showform">
+  <div class="row no-gutters mt-5" >
+    <div class="col-md-1">
+      <label>Email</label>
+    </div>
+    <div class="col-md-11">
+        <input type="text" class="form-control" [(ngModel)]="email">
+      </div>
+      
+  </div>
+  <div class="row no-gutters mt-5">
+      <div class="col-md-1">
+        <label>password</label>
+      </div>
+      <div class="col-md-11">
+          <input type="text" class="form-control" [(ngModel)]="password">
+        </div>
+        
+    </div>
+    <div class="row no-gutters mt-5">
+        <div class="col-md-1">
+          <label>Gender</label>
+        </div>
+        <div class="col-md-2">
+            <div class="col-md-1">
+            <input type="radio" [(ngModel)]="gender" name="gender" value="male">male</div>
+            <div class="col-md-1">
+            <input type="radio"  [(ngModel)]="gender" name="gender" value="female">female</div>
+          </div>
+          
+      </div>
+      <div class="row no-gutters mt-5">
+          <div class="col-md-1">
+            <label>Phone</label>
+          </div>
+          <div class="col-md-11">
+              <input type="text" class="form-control" [(ngModel)]="phone">
+            </div>
+            
+        </div>
+        <div class="row no-gutters mt-5">
+            <div class="col-md-1">
+              <label>Address</label>
+            </div>
+            <div class="col-md-11">
+                <input type="text" class="form-control" [(ngModel)]="address">
+              </div>
+              
+          </div>
+          <div class="row no-gutters mt-5 text-center">
+             <button (click)="createEmployee()">submit</button> 
+            </div>
+
+          </div>
+            <div class="row" *ngIf="showlist">
+              <table class="table table-bordered table-stripped">
+                <thead>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Gender</th>
+              <th>Address</th>
+              <th>Phone</th></thead>
+              <tbody>
+                <tr *ngFor="let x of employess;let i=index">
+                  <td>{{x.email}}</td>
+                  <td>{{x.pasword}}</td>
+                  <td>{{x.gender}}</td>
+                  <td>{{x.address}}</td>
+                  <td>{{x.phone}}</td>
+                  <td><a href="#" (click)="editEmployee(x)">Edit</a></td>
+                  <td><a href="#" (click)="deleteEmployeeDetails(x,i)">delete</a></td>
+                </tr>
+              </tbody>
+              </table>
+
+            </div>
+</div>
